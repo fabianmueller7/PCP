@@ -1,0 +1,99 @@
+ <svg viewBox="0 0 950 660" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0L10,5L0,10z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="950" height="660" fill="#ffffff"/>
+  <text x="475" y="28" text-anchor="middle" font-size="19" font-weight="bold" fill="#1e293b">Suchbaum: ?- grandmother(liz, X).</text>
+  <text x="475" y="46" text-anchor="middle" font-size="12" fill="#64748b">grandmother(A,B) :- parent(A,C), parent(C,B), female(A).</text>
+
+  <!-- ===== Edges ===== -->
+  <line x1="505" y1="100" x2="505" y2="178" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="300" y="118" width="410" height="32" fill="#ffffff"/>
+  <text x="505" y="130" text-anchor="middle" font-size="11" font-family="Menlo, Consolas, monospace" fill="#334155">grandmother(A,B):-parent(A,C),parent(C,B),female(A)</text>
+  <text x="505" y="144" text-anchor="middle" font-size="11" fill="#334155">{A = liz, B = X}</text>
+
+  <line x1="505" y1="262" x2="260" y2="328" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="505" y1="262" x2="760" y2="328" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="180" y="288" width="180" height="30" fill="#ffffff"/>
+  <text x="270" y="300" text-anchor="middle" font-size="11" font-family="Menlo, Consolas, monospace" fill="#334155">parent(liz,tom)</text>
+  <text x="270" y="313" text-anchor="middle" font-size="11" fill="#334155">{C = tom}</text>
+  <rect x="680" y="288" width="180" height="30" fill="#ffffff"/>
+  <text x="770" y="300" text-anchor="middle" font-size="11" font-family="Menlo, Consolas, monospace" fill="#334155">parent(liz,joe)</text>
+  <text x="770" y="313" text-anchor="middle" font-size="11" fill="#334155">{C = joe}</text>
+
+  <line x1="260" y1="392" x2="130" y2="432" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="260" y1="392" x2="430" y2="432" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="20" y="398" width="180" height="30" fill="#ffffff"/>
+  <text x="110" y="410" text-anchor="middle" font-size="11" font-family="Menlo, Consolas, monospace" fill="#334155">parent(tom,sue)</text>
+  <text x="110" y="423" text-anchor="middle" font-size="11" fill="#334155">{X = sue}</text>
+  <rect x="345" y="398" width="180" height="30" fill="#ffffff"/>
+  <text x="435" y="410" text-anchor="middle" font-size="11" font-family="Menlo, Consolas, monospace" fill="#334155">parent(tom,jim)</text>
+  <text x="435" y="423" text-anchor="middle" font-size="11" fill="#334155">{X = jim}</text>
+
+  <line x1="760" y1="392" x2="760" y2="432" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="615" y="398" width="290" height="30" fill="#ffffff"/>
+  <text x="760" y="413" text-anchor="middle" font-size="11" fill="#334155">kein Fakt parent(joe, _) vorhanden</text>
+
+  <line x1="130" y1="476" x2="130" y2="516" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="35" y="482" width="190" height="30" fill="#ffffff"/>
+  <text x="130" y="497" text-anchor="middle" font-size="11" fill="#334155">female(liz) ✓ Fakt</text>
+
+  <line x1="430" y1="476" x2="430" y2="516" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="335" y="482" width="190" height="30" fill="#ffffff"/>
+  <text x="430" y="497" text-anchor="middle" font-size="11" fill="#334155">female(liz) ✓ Fakt</text>
+
+  <!-- ===== Nodes ===== -->
+  <!-- root -->
+  <rect x="375" y="48" width="260" height="44" rx="8" fill="#eef2f7" stroke="#334155" stroke-width="1.5"/>
+  <text x="505" y="75" text-anchor="middle" font-size="13" font-family="Menlo, Consolas, monospace" fill="#1e293b">grandmother(liz, X)</text>
+
+  <!-- node1: after rule expansion -->
+  <rect x="345" y="178" width="320" height="84" rx="8" fill="#eef2f7" stroke="#334155" stroke-width="1.5"/>
+  <text x="505" y="202" text-anchor="middle" font-size="13" font-family="Menlo, Consolas, monospace" fill="#1e293b">parent(liz, C),</text>
+  <text x="505" y="224" text-anchor="middle" font-size="13" font-family="Menlo, Consolas, monospace" fill="#1e293b">parent(C, X),</text>
+  <text x="505" y="246" text-anchor="middle" font-size="13" font-family="Menlo, Consolas, monospace" fill="#1e293b">female(liz)</text>
+
+  <!-- node2a: C=tom -->
+  <rect x="130" y="328" width="260" height="64" rx="8" fill="#eef2f7" stroke="#334155" stroke-width="1.5"/>
+  <text x="260" y="354" text-anchor="middle" font-size="13" font-family="Menlo, Consolas, monospace" fill="#1e293b">parent(tom, X),</text>
+  <text x="260" y="376" text-anchor="middle" font-size="13" font-family="Menlo, Consolas, monospace" fill="#1e293b">female(liz)</text>
+
+  <!-- node2b: C=joe -->
+  <rect x="630" y="328" width="260" height="64" rx="8" fill="#eef2f7" stroke="#334155" stroke-width="1.5"/>
+  <text x="760" y="354" text-anchor="middle" font-size="13" font-family="Menlo, Consolas, monospace" fill="#1e293b">parent(joe, X),</text>
+  <text x="760" y="376" text-anchor="middle" font-size="13" font-family="Menlo, Consolas, monospace" fill="#1e293b">female(liz)</text>
+
+  <!-- node3a: X=sue -->
+  <rect x="35" y="432" width="190" height="44" rx="8" fill="#eef2f7" stroke="#334155" stroke-width="1.5"/>
+  <text x="130" y="459" text-anchor="middle" font-size="13" font-family="Menlo, Consolas, monospace" fill="#1e293b">female(liz)</text>
+
+  <!-- node3b: X=jim -->
+  <rect x="335" y="432" width="190" height="44" rx="8" fill="#eef2f7" stroke="#334155" stroke-width="1.5"/>
+  <text x="430" y="459" text-anchor="middle" font-size="13" font-family="Menlo, Consolas, monospace" fill="#1e293b">female(liz)</text>
+
+  <!-- fail leaf (joe) -->
+  <rect x="620" y="432" width="280" height="64" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="760" y="458" text-anchor="middle" font-size="13" font-weight="bold" fill="#991b1b">✗ FEHLSCHLAG</text>
+  <text x="760" y="478" text-anchor="middle" font-size="11" fill="#991b1b">(joe hat keine Kinder)</text>
+
+  <!-- success leaf X=sue -->
+  <rect x="20" y="516" width="220" height="64" rx="8" fill="#d1fae5" stroke="#059669" stroke-width="1.5"/>
+  <text x="130" y="542" text-anchor="middle" font-size="13" font-weight="bold" fill="#065f46">✓ ERFOLG</text>
+  <text x="130" y="562" text-anchor="middle" font-size="13" font-family="Menlo, Consolas, monospace" fill="#065f46">X = sue</text>
+
+  <!-- success leaf X=jim -->
+  <rect x="320" y="516" width="220" height="64" rx="8" fill="#d1fae5" stroke="#059669" stroke-width="1.5"/>
+  <text x="430" y="542" text-anchor="middle" font-size="13" font-weight="bold" fill="#065f46">✓ ERFOLG</text>
+  <text x="430" y="562" text-anchor="middle" font-size="13" font-family="Menlo, Consolas, monospace" fill="#065f46">X = jim</text>
+
+  <!-- Legend -->
+  <rect x="20" y="610" width="16" height="16" fill="#d1fae5" stroke="#059669"/>
+  <text x="42" y="623" font-size="12" fill="#334155">Erfolg (Lösung)</text>
+  <rect x="180" y="610" width="16" height="16" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="202" y="623" font-size="12" fill="#334155">Fehlschlag (Backtracking)</text>
+  <rect x="420" y="610" width="16" height="16" fill="#eef2f7" stroke="#334155"/>
+  <text x="442" y="623" font-size="12" fill="#334155">Zwischenziel</text>
+</svg>

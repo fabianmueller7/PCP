@@ -1,0 +1,93 @@
+<svg viewBox="0 0 1150 620" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0L10,5L0,10z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="1150" height="620" fill="#ffffff"/>
+  <text x="575" y="28" text-anchor="middle" font-size="19" font-weight="bold" fill="#1e293b">Suchbaum: ?- offspring(ann, mary).</text>
+  <text x="575" y="46" text-anchor="middle" font-size="12" fill="#64748b">offspring(A,B):-parent(B,A).   offspring(A,B):-parent(C,A),offspring(C,B).</text>
+
+  <!-- ===== Edges ===== -->
+  <line x1="575" y1="100" x2="220" y2="163" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="575" y1="100" x2="750" y2="163" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="70" y="112" width="300" height="30" fill="#ffffff"/>
+  <text x="220" y="125" text-anchor="middle" font-size="11" fill="#334155">Klausel 1: parent(B,A)</text>
+  <text x="220" y="138" text-anchor="middle" font-size="11" fill="#334155">{A = ann, B = mary}</text>
+  <rect x="600" y="112" width="300" height="30" fill="#ffffff"/>
+  <text x="750" y="125" text-anchor="middle" font-size="11" fill="#334155">Klausel 2: parent(C,A),offspring(C,B)</text>
+  <text x="750" y="138" text-anchor="middle" font-size="11" fill="#334155">{A = ann, B = mary}</text>
+
+  <line x1="220" y1="207" x2="220" y2="243" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="60" y="210" width="320" height="30" fill="#ffffff"/>
+  <text x="220" y="225" text-anchor="middle" font-size="10.5" font-family="Menlo, Consolas, monospace" fill="#334155">parent(mary,mia)✗ (mia)/fred/tina ≠ ann</text>
+
+  <line x1="750" y1="232" x2="750" y2="268" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="620" y="238" width="260" height="30" fill="#ffffff"/>
+  <text x="750" y="253" text-anchor="middle" font-size="11" font-family="Menlo, Consolas, monospace" fill="#334155">parent(mia,ann)</text>
+  <text x="750" y="266" text-anchor="middle" font-size="10" fill="#334155">{C = mia} (einziger Fakt)</text>
+
+  <line x1="750" y1="312" x2="650" y2="348" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="750" y1="312" x2="950" y2="348" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <rect x="530" y="316" width="240" height="30" fill="#ffffff"/>
+  <text x="650" y="330" text-anchor="middle" font-size="11" fill="#334155">Klausel 1: parent(B',A')</text>
+  <text x="650" y="342" text-anchor="middle" font-size="10" fill="#334155">{A' = mia, B' = mary}</text>
+  <rect x="825" y="316" width="250" height="30" fill="#ffffff"/>
+  <text x="950" y="330" text-anchor="middle" font-size="11" fill="#64748b">Klausel 2:</text>
+  <text x="950" y="342" text-anchor="middle" font-size="10" fill="#64748b">parent(C',mia),offspring(C',mary)</text>
+
+  <line x1="650" y1="392" x2="650" y2="428" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="530" y="398" width="240" height="26" fill="#ffffff"/>
+  <text x="650" y="415" text-anchor="middle" font-size="11" font-family="Menlo, Consolas, monospace" fill="#334155">parent(mary,mia) ✓ Fakt</text>
+
+  <!-- ===== Nodes ===== -->
+  <!-- root -->
+  <rect x="435" y="48" width="280" height="44" rx="8" fill="#eef2f7" stroke="#334155" stroke-width="1.5"/>
+  <text x="575" y="75" text-anchor="middle" font-size="13" font-family="Menlo, Consolas, monospace" fill="#1e293b">offspring(ann, mary)</text>
+
+  <!-- node1a: clause1 attempt -->
+  <rect x="100" y="163" width="240" height="44" rx="8" fill="#eef2f7" stroke="#334155" stroke-width="1.5"/>
+  <text x="220" y="190" text-anchor="middle" font-size="13" font-family="Menlo, Consolas, monospace" fill="#1e293b">parent(mary, ann)</text>
+
+  <!-- node1b: clause2 attempt -->
+  <rect x="590" y="163" width="320" height="64" rx="8" fill="#eef2f7" stroke="#334155" stroke-width="1.5"/>
+  <text x="750" y="189" text-anchor="middle" font-size="13" font-family="Menlo, Consolas, monospace" fill="#1e293b">parent(C, ann),</text>
+  <text x="750" y="211" text-anchor="middle" font-size="13" font-family="Menlo, Consolas, monospace" fill="#1e293b">offspring(C, mary)</text>
+
+  <!-- fail leaf under node1a -->
+  <rect x="80" y="243" width="280" height="56" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="220" y="266" text-anchor="middle" font-size="13" font-weight="bold" fill="#991b1b">✗ FEHLSCHLAG</text>
+  <text x="220" y="286" text-anchor="middle" font-size="11" fill="#991b1b">kein Fakt parent(mary,ann)</text>
+
+  <!-- node2: offspring(mia,mary) -->
+  <rect x="630" y="268" width="240" height="44" rx="8" fill="#eef2f7" stroke="#334155" stroke-width="1.5"/>
+  <text x="750" y="295" text-anchor="middle" font-size="13" font-family="Menlo, Consolas, monospace" fill="#1e293b">offspring(mia, mary)</text>
+
+  <!-- node3a: clause1 attempt for offspring(mia,mary) -->
+  <rect x="530" y="348" width="240" height="44" rx="8" fill="#eef2f7" stroke="#334155" stroke-width="1.5"/>
+  <text x="650" y="375" text-anchor="middle" font-size="13" font-family="Menlo, Consolas, monospace" fill="#1e293b">parent(mary, mia)</text>
+
+  <!-- node3b: clause2, not explored -->
+  <rect x="825" y="348" width="250" height="44" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="950" y="375" text-anchor="middle" font-size="12" fill="#64748b">nicht durchsucht</text>
+
+  <!-- success leaf -->
+  <rect x="520" y="428" width="260" height="64" rx="8" fill="#d1fae5" stroke="#059669" stroke-width="1.5"/>
+  <text x="650" y="454" text-anchor="middle" font-size="13" font-weight="bold" fill="#065f46">✓ ERFOLG</text>
+  <text x="650" y="474" text-anchor="middle" font-size="12" fill="#065f46">offspring(ann,mary) = true</text>
+
+  <!-- annotation -->
+  <rect x="60" y="520" width="1030" height="70" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="1"/>
+  <text x="80" y="542" font-size="12" fill="#78350f">Hinweis: Da offspring(ann, mary) eine geschlossene (voll instanziierte) Anfrage ist, stoppt Prolog</text>
+  <text x="80" y="560" font-size="12" fill="#78350f">beim ersten Erfolg (kein Backtracking mit „;“ angefordert). Klausel 2 von offspring(mia, mary)</text>
+  <text x="80" y="578" font-size="12" fill="#78350f">wird deshalb nicht mehr durchsucht (gestrichelt dargestellt).</text>
+
+  <!-- Legend -->
+  <rect x="60" y="600" width="16" height="16" fill="#d1fae5" stroke="#059669"/>
+  <text x="82" y="613" font-size="12" fill="#334155">Erfolg</text>
+  <rect x="160" y="600" width="16" height="16" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="182" y="613" font-size="12" fill="#334155">Fehlschlag</text>
+  <rect x="280" y="600" width="16" height="16" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="3,2"/>
+  <text x="302" y="613" font-size="12" fill="#334155">Nicht durchsucht</text>
+</svg>
