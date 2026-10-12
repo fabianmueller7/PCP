@@ -24,7 +24,7 @@ swipl SW03/Aufgabe02/Memoization_Fakultaet.pl
 
 ## Aufgabe 3: Listen-Operationen
 ```
-swipl SW03/Aufgabe3/Listen_Operationen.pl
+swipl SW03/Aufgabe03/Listen_Operationen.pl
 ```
 ```
 ?- add_tail(x, [a, b, c], L).
