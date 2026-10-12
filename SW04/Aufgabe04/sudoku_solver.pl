@@ -40,7 +40,7 @@ replace_0([H | T], [H | T1]) :-
 
 solve_sudoku(Id) :-
     fetch_problem(sudoku, Id, Fields),
-    memberchk(sudoku=RowsWithZeros, Fields),
-    maplist(replace_0, RowsWithZeros, Rows),
+    memberchk(sudoku=RowsWithZeros, Fields),           % RowsWithZeros = 9x9-Liste von Listen aus dem JSON, freie Felder als 0
+    maplist(replace_0, RowsWithZeros, Rows),            % wendet replace_0/2 auf jede der 9 Zeilen an -> Rows mit _ statt 0
     sudoku(Rows),
     post_solution(sudoku, [id=Id, solution=Rows]).
